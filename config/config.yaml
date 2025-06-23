@@ -1,0 +1,30 @@
+# Data Configuration
+data:
+  data_dir: "data/raw"
+  input_size: [256, 256]
+  scale_factor: 2
+  batch_size: 16
+  num_workers: 4
+  train_split: 0.8
+  val_split: 0.2
+
+# Model Configuration
+model:
+  type: "srcnn"  # Options: srcnn, edsr, rcan
+  channels: 3
+  learning_rate: 0.001
+  epochs: 100
+  save_frequency: 10
+
+# Training Configuration
+training:
+  device: "cuda"
+  mixed_precision: true
+  gradient_clipping: 1.0
+  scheduler: "cosine"
+
+# Evaluation Configuration
+evaluation:
+  metrics: ["psnr", "ssim", "mse", "rmse"]
+  blind_assessment: true
+  correlation_analysis: true
